@@ -12,120 +12,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_FOLDER := device/bn/acclaim
-COMMON_FOLDER := device/bn/omap4-common
+# name
+PRODUCT_RELEASE_NAME := Acclaim
 
-$(call inherit-product, $(COMMON_FOLDER)/common.mk)
+# Inherit device configuration for acclaim
+$(call inherit-product, device/bn/acclaim/full_acclaim.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay/aosp
+TARGET_SCREEN_WIDTH := 600
+TARGET_SCREEN_HEIGHT := 1024
 
-# rootfs
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/root/init.acclaim.rc:root/init.acclaim.rc \
-	$(DEVICE_FOLDER)/root/init.acclaim.usb.rc:root/init.acclaim.usb.rc \
-	$(DEVICE_FOLDER)/root/ueventd.acclaim.rc:root/ueventd.acclaim.rc
+DEVICE_PACKAGE_OVERLAYS += vendor/carbon/overlay/common
 
-# media
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/etc/audio_policy.conf:/system/etc/audio_policy.conf \
-	$(DEVICE_FOLDER)/prebuilt/etc/media_codecs.xml:/system/etc/media_codecs.xml \
-	$(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-	$(DEVICE_FOLDER)/prebuilt/etc/mixer_paths.xml:/system/etc/mixer_paths.xml
+# languages
+PRODUCT_LOCALES := en_US de_DE zh_CN zh_TW cs_CZ nl_BE nl_NL en_AU en_GB en_CA en_NZ en_SG fr_BE fr_CA fr_FR fr_CH de_AT de_LI de_CH it_IT it_CH ja_JP ko_KR pl_PL ru_RU es_ES ar_EG ar_IL bg_BG ca_ES hr_HR da_DK en_IN en_IE en_ZA fi_FI el_GR iw_IL hi_IN hu_HU in_ID lv_LV lt_LT nb_NO pt_BR pt_PT ro_RO sr_RS sk_SK sl_SI es_US sv_SE tl_PH th_TH tr_TR uk_UA vi_VN
 
-# art
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/poetry/poem.txt:root/sbin/poem.txt
+# tablet
+$(call inherit-product, vendor/carbon/config/common_tablet.mk)
 
-# input
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/usr/idc/ft5x06-i2c.idc:system/usr/idc/ft5x06-i2c.idc \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl\
-	$(DEVICE_FOLDER)/prebuilt/usr/idc/twl6030_pwrbutton.idc:system/usr/idc/twl6030_pwrbutton.idc \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/twl6030_pwrbutton.kl:system/usr/keylayout/twl6030_pwrbutton.kl
 
-# vold
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/etc/vold.acclaim.fstab:system/etc/vold.fstab
-
-# wifi
-PRODUCT_PACKAGES += \
-	calibrator \
-	crda \
-	regulatory.bin \
-	lib_driver_cmd_wl12xx 
-
-# scripts to clear boot counter and update the battery log info
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/fix-serial-no.sh:/system/bin/fix-serial-no.sh
-
-# permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
-
-# hardware HALs
-PRODUCT_PACKAGES += \
-	hwcomposer.acclaim \
-	lights.acclaim \
-	power.acclaim \
-	sensors.acclaim \
-	audio.primary.acclaim
-
-# recovery: script to reset boot cmds
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
-
-PRODUCT_PACKAGES += \
-	librs_jni \
-	libjni_pinyinime \
-	libwvm \
-	TFF \
-	sdcard \
-	com.android.future.usb.accessory \
-	Superuser \
-	su \
-	make_ext4fs \
-	setup_fs \
-	tinyplay \
-	tinymix \
-	tinycap
-
-# TI OMAP4
-PRODUCT_PACKAGES += \
-	libdomx \
-	libOMX_Core \
-	libOMX.TI.DUCATI1.VIDEO.H264E \
-	libOMX.TI.DUCATI1.VIDEO.MPEG4E \
-	libOMX.TI.DUCATI1.VIDEO.DECODER \
-	libOMX.TI.DUCATI1.VIDEO.DECODER.secure \
-	libOMX.TI.DUCATI1.VIDEO.CAMERA \
-	libOMX.TI.DUCATI1.MISC.SAMPLE \
-	libstagefrighthw \
-	libI420colorconvert \
-	libtiutils \
-	libcamera \
-	libion_ti \
-	libomxcameraadapter \
-	smc_pa_ctrl \
-	tf_daemon \
-	libtf_crypto_sst
-
-PRODUCT_CHARACTERISTICS := tablet
-PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
-
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.opengles.version=131072 \
-	ro.sf.lcd_density=160 \
-	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=45 \
-	persist.sys.usb.config=mass_storage,adb \
-	ro.crypto.state=unencrypted \
-	persist.sys.root_access=3
-
-$(call inherit-product-if-exists, vendor/bn/acclaim/acclaim-vendor.mk)
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+PRODUCT_DEVICE := acclaim
+PRODUCT_BRAND := Android
+PRODUCT_NAME := carbon_acclaim
+PRODUCT_MODEL := Barnes & Noble Nook Tablet
+PRODUCT_MANUFACTURER := Barnes & Noble
+PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.acclaim.$(shell date +%m%d%y).$(shell date +%H%M%S)
