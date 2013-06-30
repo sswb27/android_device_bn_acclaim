@@ -156,10 +156,12 @@ typedef enum OMX_COLOR_FORMATTYPE {
      * Android-specific OMX IL colorformats. Change this enum to
      * an acceptable range once that is done.
      * */
-    OMX_COLOR_FormatAndroidOpaque = 0x7F000789,
-    OMX_QCOM_COLOR_FormatYVU420SemiPlanar = 0x7FA30C00,
-    OMX_QCOM_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka = 0x7FA30C03,
-    OMX_COLOR_FormatMax = 0x7FFFFFFF
+	OMX_COLOR_FormatAndroidOpaque = 0x7F000789,
+	OMX_TI_COLOR_FormatYUV420PackedSemiPlanar = 0x7F000100,
+	OMX_QCOM_COLOR_FormatYVU420SemiPlanar = 0x7FA30C00,
+	OMX_QCOM_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka = 0x7FA30C03,
+	OMX_QCOM_COLOR_FormatYUV420PackedSemiPlanar32m = 0x7FA30C04,
+	OMX_COLOR_FormatMax = 0x7FFFFFFF
 } OMX_COLOR_FORMATTYPE;
 
 
