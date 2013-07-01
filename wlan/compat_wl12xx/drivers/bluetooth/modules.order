@@ -1,0 +1,9 @@
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/hci_vhci.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/bcm203x.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/bpa10x.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/bfusb.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/btusb.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/btsdio.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/ath3k.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/btmrvl.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/drivers/bluetooth/btmrvl_sdio.ko

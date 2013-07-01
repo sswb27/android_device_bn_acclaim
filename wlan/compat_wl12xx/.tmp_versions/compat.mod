@@ -1,0 +1,2 @@
+/media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/compat/compat.ko
+/media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/compat/main.o /media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/compat/cordic.o /media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/compat/crc8.o /media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/compat/compat_atomic.o

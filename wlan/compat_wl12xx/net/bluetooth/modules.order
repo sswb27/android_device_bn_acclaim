@@ -1,0 +1,4 @@
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/net/bluetooth/bluetooth.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/net/bluetooth/rfcomm/rfcomm.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/net/bluetooth/bnep/bnep.ko
+kernel//media/250gb1/CarbonRom/hardware/ti/wlan/mac80211/compat_wl12xx/net/bluetooth/hidp/hidp.ko
